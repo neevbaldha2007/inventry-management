@@ -6,8 +6,27 @@ const { getDb } = require('./db');
 getDb();
 
 const app = express();
-app.use(cors());
+
+// CORS: allow Vercel frontend and localhost in dev
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:4173',
+  process.env.CLIENT_URL, // set this in Render env vars to your Vercel URL
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (e.g. curl, mobile apps)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.some(o => origin.startsWith(o))) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+}));
 app.use(express.json());
+
 
 // Import middleware
 const { authMiddleware } = require('./middleware/auth');
