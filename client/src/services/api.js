@@ -1,6 +1,8 @@
 const API_BASE = import.meta.env.VITE_API_URL
   ? `${import.meta.env.VITE_API_URL}/api`
-  : '/api';
+  : import.meta.env.DEV
+    ? '/api'
+    : 'https://inventry-management-e1cp.onrender.com/api';
 
 function getToken() {
   return localStorage.getItem('ims_token');
