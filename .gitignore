@@ -1,0 +1,36 @@
+# Node.js
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Local Node binary
+.bin/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases
+server/inventory.db
+server/inventory.db-shm
+server/inventory.db-wal
+*.db
+*.db-shm
+*.db-wal
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini

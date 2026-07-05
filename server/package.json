@@ -1,0 +1,20 @@
+{
+  "name": "ims-server",
+  "version": "1.0.0",
+  "description": "Inventory Management System - Backend API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "seed": "node seed.js",
+    "seed:reset": "node seed.js --reset"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^11.0.3"
+  }
+}
